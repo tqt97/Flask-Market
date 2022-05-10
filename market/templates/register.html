@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}
+Register page
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Register</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 mx-auto">
+            <form action="{{ url_for('register') }}" method="post"
+                class="form-register">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.username.label }}
+                    {{ form.username(class="form-control",placeholder="Username") }}
+                </div>
+                <div class="form-group">
+                    {{ form.email_address.label }}
+                    {{ form.email_address(class="form-control",placeholder="Email address") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password1.label }}
+                    {{ form.password1(class="form-control",placeholder="Password") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password2.label }}
+                    {{ form.password2(class="form-control",placeholder="Password confirmation") }}
+                </div>
+                <div class="form-group">
+                    <p class="fw-bold mt-2 pt-1 mb-0">Already have an account?
+                        <a href="{{ url_for('login') }}"
+                            class="link-danger">Login here
+                        </a>
+                    </p>
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
